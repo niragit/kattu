@@ -11,7 +11,7 @@ jobs:
   delete-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - uses: kolpav/purge-artifacts-action@v1
+      - uses: niratest/purge-artifacts-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           expire-in: 2days # Setting this to 0 will delete all artifacts
