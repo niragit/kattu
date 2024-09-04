@@ -1,11 +1,22 @@
-name: Build
+name: Maven Sonar Analysis
 
 on:
-  push:
-    branches:
-      - niradev-1.2.0.1-N1
-  pull_request:
-    types: [opened, synchronize, reopened]
+  workflow_call:
+    inputs:
+      SERVICE_LOCATION:
+        required: true
+        type: string
+      SONAR_URL:
+        required: false
+        type: string
+        default: 'https://sonarcloud.io'
+      PROJECT_KEY:
+        required: false
+        type: string
+        default: "mosip_${{ github.event.repository.name }}"
+    secrets:
+      SONAR_TOKEN:
+        required: true
 
 jobs:
   build:
