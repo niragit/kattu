@@ -1,4 +1,4 @@
-name: Maven Sonar Analysis
+name: Build
 
 on:
   workflow_call:
@@ -16,6 +16,18 @@ on:
         default: "mosip_${{ github.event.repository.name }}"
     secrets:
       SONAR_TOKEN:
+        required: true
+      ORG_KEY:
+        required: true
+      OSSRH_USER:
+        required: true
+      OSSRH_SECRET:
+        required: true
+      OSSRH_TOKEN:
+        required: true
+      GPG_SECRET:
+        required: true
+      SLACK_WEBHOOK_URL:
         required: true
 
 jobs:
